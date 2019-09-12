@@ -7,10 +7,15 @@ class Solution:
         while True:
             p = nums[p]
             q = nums[nums[q]]
-            print(p, q)
             if p == q:
-                return p
+                break
+
+        p = nums[0]
+        while p != q:
+            p = nums[p]
+            q = nums[q]
+        return p
 
 
 if __name__ == '__main__':
-    print(Solution().findDuplicate([2, 5, 9, 6, 9, 3, 8, 9, 7, 1]))
+    print(Solution().findDuplicate([2, 5, 9, 6, 3, 4, 8, 9, 7, 1]))
