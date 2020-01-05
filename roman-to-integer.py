@@ -11,6 +11,16 @@ class Solution:
         'M': 1000,
     }
 
+    def romanToInt2(self, s: str) -> int:
+        result = 0
+        for idx in range(len(s) - 1):
+            if self.ROMAN_MAP[s[idx]] >= self.ROMAN_MAP[s[idx + 1]]:
+                result += self.ROMAN_MAP[s[idx]]
+            else:
+                result -= self.ROMAN_MAP[s[idx]]
+        result += self.ROMAN_MAP[s[-1]]
+        return result
+
     def romanToInt(self, s: str) -> int:
         idx = 0
         result = 0
@@ -36,4 +46,4 @@ if __name__ == '__main__':
         'LVIII', # 58
         'MCMXCIV', # 1994
     ):
-        print(Solution().romanToInt(roman))
+        print(Solution().romanToInt2(roman))
